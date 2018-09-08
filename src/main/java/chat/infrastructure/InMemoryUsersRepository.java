@@ -26,7 +26,7 @@ public class InMemoryUsersRepository implements UsersRepository {
     }
 
     @Override
-    public List<ChatUser> findall() {
+    public List<ChatUser> findAll() {
         return null;
     }
 

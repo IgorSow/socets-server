@@ -10,5 +10,5 @@ public interface UsersRepository {
 
     ChatUser find(String address);
 
-    List<ChatUser> findall();
+    List<ChatUser> findAll();
 }

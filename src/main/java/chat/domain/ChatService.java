@@ -24,7 +24,7 @@ public class ChatService {
 
         switch (chatCommand) {
             case LIST_USERS:
-                List<ChatUser> users = usersRepository.findall();
+                List<ChatUser> users = usersRepository.findAll();
                 StringBuilder stringBuilder = new StringBuilder();
 
                 for (ChatUser user : users) {
