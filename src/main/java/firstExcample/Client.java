@@ -1,10 +1,12 @@
+package firstExcample;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class Client {
     public static void main(String[] args) throws IOException {
-        Socket socket = new Socket("192.168.100.108", 8081);
+        Socket socket = new Socket("192.168.100.173", 8081);
 
         Scanner consolScanner = new Scanner(System.in);
 
