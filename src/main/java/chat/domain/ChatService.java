@@ -43,20 +43,7 @@ public class ChatService {
 
             case MASSAGES:
 
-                if (splitMessage.length == 1) {
-                    List<ChatMessage> messages = messageRepository.findMessagesFor(chatUser);
-                    Map<ChatUser, Integer> map = new HashMap<>();
-                    for (ChatMessage chatMessage : messages) {
-                       ChatUser interlocutor = getInterlocutorFor(chatUser,chatMessage);
-                        if (!map.containsKey(interlocutor)) {
-                            map.put(interlocutor,0);
-                        }
-                        Integer currentCounter = map.get(interlocutor);
-                        currentCounter++;
-                        map.put(interlocutor,currentCounter);
-                    }
-                    return aggregateToString(map);
-                }
+                return handleMessages(chatUser, splitMessage);
 
             case NEW_MASSAGES:
 
@@ -64,6 +51,24 @@ public class ChatService {
             default:
                 return "";
         }
+    }
+
+    private String handleMessages(ChatUser chatUser, String[] splitMessage) {
+        if (splitMessage.length == 1) {
+            List<ChatMessage> messages = messageRepository.findMessagesFor(chatUser);
+            Map<ChatUser, Integer> map = new HashMap<>();
+            for (ChatMessage chatMessage : messages) {
+               ChatUser interlocutor = getInterlocutorFor(chatUser,chatMessage);
+                if (!map.containsKey(interlocutor)) {
+                    map.put(interlocutor,0);
+                }
+                Integer currentCounter = map.get(interlocutor);
+                currentCounter++;
+                map.put(interlocutor,currentCounter);
+            }
+            return aggregateToString(map);
+        }
+        return "";
     }
 
     private String aggregateToString(Map<ChatUser,Integer> aggregates){
