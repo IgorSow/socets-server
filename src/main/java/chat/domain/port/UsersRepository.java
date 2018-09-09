@@ -8,7 +8,10 @@ public interface UsersRepository {
 
     ChatUser addUser(ChatUser user);
 
-    ChatUser find(String address);
+    ChatUser findByAddress(String address);
 
-    List<ChatUser> findall();
+    ChatUser findByName(String receiveName);
+
+    List<ChatUser> findAll();
+
 }

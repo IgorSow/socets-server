@@ -1,10 +1,13 @@
 package chat.domain.model;
 
 public enum ChatCommand {
-    AUTHENTICATE("hello"),
+
     LIST_USERS("users"),
 
-    SEND_MASSAGE("send");
+    SEND_MASSAGE("send"),
+
+    MASSAGES("massages"),
+    NEW_MASSAGES("new_massages");
 
     private String commandName;
 
@@ -14,14 +17,18 @@ public enum ChatCommand {
 
     public static ChatCommand getByCommandName(String commandName) {
         switch (commandName) {
-            case "hello":
-                return ChatCommand.AUTHENTICATE;
-
             case "users":
                 return ChatCommand.LIST_USERS;
 
             case "send":
                 return ChatCommand.SEND_MASSAGE;
+
+            case "massages":
+                return ChatCommand.MASSAGES;
+
+            case "new_massages":
+                return ChatCommand.NEW_MASSAGES;
+
 
             default:
                 return null;

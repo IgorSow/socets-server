@@ -1,0 +1,10 @@
+api -- wejscie do aplikacji
+domain- to co robi nasza aplikacja - obsługuje komendy które dalej sa tlumaczone
+infrastructure - detale polaczenia sie z baza danych, z plikami - implemetacja portów w domenie
+
+
+aplication - odpala
+
+
+
+infrastruktora ----->>> domain <<--- API
